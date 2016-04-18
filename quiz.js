@@ -22,8 +22,6 @@ var userInput = {
   character: ""
 }
 
-// selects the button labeled "Grow your Tree"
-var growButton = document.getElementById("growTree");
 
 
 // function to build the console tree based on user input
@@ -55,5 +53,27 @@ var treeBuilder = function() {
   }
 }
 
+// function that checks if user presses the enter/return key
+var pressEnterCheck = function (keyPressed) {
+  if(keyPressed.which === 13) {
+    treeBuilder();
+  }
+}
+
+
+// selects the input button labeled "Grow your Tree"
+var growButton = document.getElementById("growTree");
+// selects the user input for tree height
+var heightEnter = document.getElementById("inputHeight");
+// selects the user input for tree character
+var characterEnter = document.getElementById("inputChar");
+
+
 // runs the treeBuilder function when the "Grow your tree" button is clicked
 growButton.addEventListener("click", treeBuilder);
+
+// runs the pressEnterCheck function when user enters values into the height input
+heightEnter.addEventListener("keypress", pressEnterCheck);
+
+// runs the pressEnterCheck function when user enters values into the character input
+characterEnter.addEventListener("keypress", pressEnterCheck);
