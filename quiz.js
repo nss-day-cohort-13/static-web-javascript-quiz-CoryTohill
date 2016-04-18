@@ -18,26 +18,37 @@
 // Grow your tree
 
 var userInput = {
-  height: 7,
-  character: "*"
+  height: "",
+  character: ""
 }
 
-var charCounter = 1;
 
+// function to build the console tree based on user input
+var treeBuilder = function() {
 
-var treeHeight = userInput.height;
+  // converts the user input from a string to a number and inserts it into userInput object
+  userInput.height = parseInt(document.getElementById("inputHeight").value);
 
+  // inserts the user's character into the userInput object
+  userInput.character = document.getElementById("inputChar").value;
 
-for (i = 0; i < userInput.height; i ++) {
-  holder = "";
+  // sets starting values for counters inside the for loops
+  var charCounter = 1;
+  var treeHeight = userInput.height;
 
-  for(j = 0; j < treeHeight; j++) {
-    holder += " ";
+  // loop that contains sub loops; first sub loop determines how much spacing, and 2nd sub loops determines characters to add per line
+  for (i = 0; i < userInput.height; i ++) {
+    holder = "";
+
+    for(j = 0; j < treeHeight; j++) {
+      holder += " ";
+    }
+    for(c = 0; c < charCounter; c++){
+      holder += userInput.character;
+    }
+    charCounter += 2;
+    treeHeight -= 1;
+    console.log(holder);
   }
-  for(c = 0; c < charCounter; c++){
-    holder += userInput.character;
-  }
-  charCounter += 2;
-  treeHeight -= 1;
-  console.log(holder);
-  }
+}
+
