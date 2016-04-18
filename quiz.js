@@ -16,13 +16,12 @@
 // or presses the button, then display an alert stating that both fields must have a value.
 
 // Grow your tree
+
 // defines the object and 2 empty keys to be filled in by the user's input
 var userInput = {
   height: "",
   character: ""
 }
-
-
 
 // function to build the console tree based on user input
 var treeBuilder = function() {
@@ -33,23 +32,30 @@ var treeBuilder = function() {
   // inserts the user's character into the userInput object
   userInput.character = document.getElementById("inputChar").value;
 
-  // sets starting values for counters inside the for loops
-  var charCounter = 1;
-  var treeHeight = userInput.height;
+  // if else statement that determines if the user has entered a number and a character for the tree into the inputs; if not will display alert, is so will run the loops to create the tree
+  if (isNaN(userInput.height) === true || userInput.character === "") {
+    alert("Both fields must have a value.")
+  } else {
+    // sets starting values for counters inside of the for loops
+    var charCounter = 1;
+    var treeHeight = userInput.height;
 
-  // loop that contains sub loops; first sub loop determines how much spacing, and 2nd sub loops determines characters to add per line
-  for (i = 0; i < userInput.height; i ++) {
-    holder = "";
+    // loop that contains sub loops to determins spacing and number of characters to add per line, then prints lines to console;
+    for (i = 0; i < userInput.height; i ++) {
+      holder = "";
 
-    for(j = 0; j < treeHeight; j++) {
-      holder += " ";
+      // loop determines amount of spacing to add before printing characters in tree
+      for(j = 0; j < treeHeight; j++) {
+        holder += " ";
+      }
+      // loop that determines how many characters to add per line
+      for(c = 0; c < charCounter; c++){
+        holder += userInput.character;
+      }
+      charCounter += 2;
+      treeHeight -= 1;
+      console.log(holder);
     }
-    for(c = 0; c < charCounter; c++){
-      holder += userInput.character;
-    }
-    charCounter += 2;
-    treeHeight -= 1;
-    console.log(holder);
   }
 }
 
