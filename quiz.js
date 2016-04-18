@@ -16,11 +16,14 @@
 // or presses the button, then display an alert stating that both fields must have a value.
 
 // Grow your tree
-
+// defines the object and 2 empty keys to be filled in by the user's input
 var userInput = {
   height: "",
   character: ""
 }
+
+// selects the button labeled "Grow your Tree"
+var growButton = document.getElementById("growTree");
 
 
 // function to build the console tree based on user input
@@ -52,3 +55,5 @@ var treeBuilder = function() {
   }
 }
 
+// runs the treeBuilder function when the "Grow your tree" button is clicked
+growButton.addEventListener("click", treeBuilder);
