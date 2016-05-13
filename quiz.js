@@ -47,23 +47,23 @@ var treeBuilder = function() {
       // loop determines amount of spacing to add before printing characters in tree
       for(var j = 0; j < treeHeight; j++) {
         holder += " ";
-      };
+      }
       // loop that determines how many characters to add per line
       for(var c = 0; c < charCounter; c++){
         holder += userInput.character;
-      };
+      }
       charCounter += 2;
       treeHeight -= 1;
       console.log(holder);
-    };
-  };
+    }
+  }
 };
 
 // function that checks if user presses the enter/return key
 var pressEnterCheck = function (keyPressed) {
   if(keyPressed.which === 13) {
     treeBuilder();
-  };
+  }
 };
 
 
